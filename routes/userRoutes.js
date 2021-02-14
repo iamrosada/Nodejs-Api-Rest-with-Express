@@ -1,7 +1,7 @@
 /*Vamos criar as rotas dos usuarios */
 
 const fs = require('fs');
-const {join} = fs;
+const {join} = require('path');
 
 const filePath =  join(__dirname, 'users.json');
 
@@ -26,6 +26,28 @@ const userRoutes = (app) =>{
             const users = getUsers();
             
             res.send({users})
+        })
+        .post((req, res)=>{
+            const users = getUsers();
+
+            users.push(req.body);
+            saveUser(users);
+
+            res.status(201).send('OK');
+        })
+        .put((req,res)=>{
+            const users = getUsers();
+
+            saveUser(users.map(user =>{
+                if(user.id === req.params.id){
+                    return {
+                        ...user,
+                        ...req.body
+                    }
+                    return user
+                }
+            }));
+            res.status(200).send('ok')
         })
 }
 
