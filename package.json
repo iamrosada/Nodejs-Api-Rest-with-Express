@@ -1,0 +1,12 @@
+{
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "name": "node-express",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/77-aguarosada/Nodejs-Api-Rest-with-Express.git",
+  "author": "77-aguarosada <luisrosada2018@gmail.com>",
+  "license": "MIT",
+  "private": false
+}
